@@ -1,7 +1,7 @@
 import './Header.css';
 
 // Header.jsx
-function Header({ storeName = "Content Corner" }) {
+function Header({ storeName = "Content Corner", cartCount = 0 }) {
   return (
     <header className="header">
       <div className="header-container">
@@ -12,6 +12,10 @@ function Header({ storeName = "Content Corner" }) {
           <a href="#about" className="nav-link">About</a>
           <a href="#contact" className="nav-link">Contact</a>
         </nav>
+        <div className="cart-container">
+          <span className="cart-icon">🛒</span>
+          <span className="cart-count">{cartCount}</span>
+        </div>
       </div>
     </header>
   );

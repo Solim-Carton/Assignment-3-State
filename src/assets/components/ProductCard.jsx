@@ -1,32 +1,20 @@
 import './ProductCard.css';
+import { useState } from 'react';
 // ProductCard.jsx
-function ProductCard() {
-  // Components are just functions
+function ProductCard({product, onAddToCart}) {
+  const [likeCount, setLikeCount] = useState(0);
+  
   return (
-    // This looks like HTML but it's JSX
     <div className="product-card">
-      <div className="product-header">
-        <img 
-          src="https://placehold.co/40x40" 
-          alt="User avatar" 
-          className="avatar"
-        />
-        <div className="user-info">
-          <h3 className="username">AlexTech</h3>
-          <span className="timestamp">2 hours ago</span>
-        </div>
-      </div>
-      <p className="product-content">
-        Just shipped my first React component! 🚀 The future is component-based.
-      </p>
-      <div className="product-actions">
-        <button className="action-btn">👍 Like</button>
-        <button className="action-btn">💬 Comment</button>
-        <button className="action-btn">🔄 Share</button>
-      </div>
+      <img src={product.image} alt={product.name} className="product-image" />
+      <h3>{product.name}</h3>
+      <p className="description">{product.description}</p>
+      <p className="price">${product.price}</p>
+      <button onClick={() => onAddToCart(product)} className="add-to-cart-btn">
+        Add to Cart
+      </button>
     </div>
   );
 }
-
 // Every component file must export the component
 export default ProductCard;
